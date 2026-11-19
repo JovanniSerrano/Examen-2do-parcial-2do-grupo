@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levi's® | Tienda Oficial</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222222;
+            background-color: #ffffff;
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .acciones-usuario {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .acciones-usuario a {
+            text-decoration: none;
+            color: #222222;
+            font-weight: bold;
+            padding: 6px 12px;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+        }
+
+        .acciones-usuario a:hover {
+            border-color: #C41230;
+            color: #C41230;
+        }
+
+        .acciones-usuario a.btn-carrito {
+            background-color: #C41230;
+            color: #ffffff;
+            border-color: #C41230;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #f8f8f8;
+            border-bottom: 2px solid #C41230;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #222222;
+            font-weight: bold;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #C41230;
+            text-decoration: underline;
+        }
+
+        .banner {
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #dddddd;
+            padding: 30px 5%;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 26px;
+            margin-bottom: 6px;
+            color: #111111;
+        }
+
+        .banner span {
+            color: #C41230;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 20px 50px 20px;
+        }
+
+        section.categoria {
+            padding-top: 65px;
+            margin-bottom: 20px;
+        }
+
+        section.categoria h2 {
+            font-size: 21px;
+            border-bottom: 2px solid #dddddd;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            color: #111111;
+        }
+
+        section.categoria h2 span {
+            color: #C41230;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .producto {
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            padding: 16px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .producto-img {
+            background-color: #f9f9f9;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .producto h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .producto p.desc {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 10px;
+        }
+
+        .precio {
+            font-size: 17px;
+            font-weight: bold;
+            color: #111111;
+            margin-bottom: 12px;
+        }
+
+        .precio-antes {
+            text-decoration: line-through;
+            color: #888888;
+            font-size: 13px;
+            margin-right: 6px;
+        }
+
+        .precio-oferta {
+            color: #C41230;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 14px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .btn-agregar {
+            background-color: #222222;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        .btn-agregar:hover {
+            background-color: #C41230;
+        }
+
+        .panel-cuenta-carrito {
+            padding-top: 65px;
+            margin-top: 30px;
+            border-top: 2px solid #dddddd;
+        }
+
+        .panel-cuenta-carrito h2 {
+            font-size: 21px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .grid-formularios {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .caja-form {
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            padding: 18px;
+            background-color: #fafafa;
+            scroll-margin-top: 70px;
+        }
+
+        .caja-form h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #dddddd;
+            color: #C41230;
+        }
+
+        .campo {
+            margin-bottom: 12px;
+        }
+
+        .campo label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .campo input[type="email"],
+        .campo input[type="password"],
+        .campo input[type="text"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .campo-check {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .btn-rojo {
+            background-color: #C41230;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        .btn-rojo:hover {
+            background-color: #a00e26;
+        }
+
+        .btn-secundario {
+            background-color: #555555;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        table.tabla-carrito {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 12px;
+            background-color: #ffffff;
+        }
+
+        table.tabla-carrito th,
+        table.tabla-carrito td {
+            border: 1px solid #dddddd;
+            padding: 7px 6px;
+            text-align: left;
+        }
+
+        table.tabla-carrito th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        table.tabla-carrito tr.fila-total td {
+            font-weight: bold;
+            background-color: #f9f9f9;
+            color: #C41230;
+        }
+
+        footer {
+            background-color: #222222;
+            color: #ffffff;
+            padding: 30px 5%;
+            margin-top: 40px;
+            border-top: 4px solid #C41230;
+        }
+
+        .footer-contenido {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .datos-alumno {
+            background-color: #333333;
+            padding: 18px 20px;
+            border-radius: 6px;
+            border: 1px solid #444444;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .datos-alumno h3 {
+            color: #C41230;
+            background-color: #ffffff;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .fila-alumno {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .fila-alumno label {
+            min-width: 140px;
+            font-weight: bold;
+        }
+
+        .fila-alumno input {
+            flex: 1;
+            padding: 5px 8px;
+            border: 1px solid #555555;
+            border-radius: 4px;
+            background-color: #222222;
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            font-size: 13px;
+            color: #cccccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 800px) {
+            .grid-productos,
+            .grid-formularios {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .fila-alumno {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .fila-alumno input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <header>
+        <a href="#top" class="logo" aria-label="Levi's Inicio">
+            <svg width="105" height="46" viewBox="0 0 210 92" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5,8 L205,8 L190,72 C170,62 148,64 132,78 C120,65 105,65 105,65 C105,65 90,65 78,78 C62,64 40,62 20,72 L5,8 Z" fill="#C41230"/>
+                <text x="105" y="48" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="bold" font-size="36" text-anchor="middle">LEVI'S</text>
+            </svg>
+        </a>
+
+        <div class="acciones-usuario">
+            <a href="#login">Inicio de Sesión</a>
+            <a href="#registro">Registro</a>
+            <a href="#carrito" class="btn-carrito">Carrito (2)</a>
+        </div>
+    </header>
+
+    <nav aria-label="Navegación Principal">
+        <a href="#mujer">Mujer</a>
+        <a href="#hombre">Hombre</a>
+        <a href="#kids">Kids</a>
+        <a href="#colecciones">Colecciones</a>
+        <a href="#rebajas">Rebajas</a>
+    </nav>
+
+    <div class="banner">
+        <h1>Catálogo Oficial <span>Levi's®</span></h1>
+        <p>Usa la barra de navegación superior para desplazarte directamente a cada sección.</p>
+    </div>
+
+    <main>
+
+        <section id="mujer" class="categoria">
+            <h2><span>01.</span> Mujer</h2>
+            <div class="grid-productos">
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M30,10 L70,10 L75,90 L57,90 L50,42 L43,90 L25,90 Z" fill="#3B6598"/><rect x="65" y="40" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>501® Original Fit Jeans</h3>
+                        <p class="desc">Corte recto icónico de tiro alto en mezclilla 100% algodón.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$1,799 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,15 L68,15 L88,35 L80,75 L70,73 L70,40 L70,85 L30,85 L30,40 L30,73 L20,75 L12,35 Z" fill="#2B4C7E"/><rect x="62" y="38" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>Trucker Jacket Clásica</h3>
+                        <p class="desc">Chamarra de mezclilla original con botones metálicos y etiqueta roja.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$2,199 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,10 L68,10 L73,90 L56,90 L50,40 L44,90 L27,90 Z" fill="#6992C2"/><rect x="63" y="40" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>Wedgie Straight Jeans</h3>
+                        <p class="desc">Inspirado en los jeans vintage con ajuste ceñido en cintura y cadera.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$1,899 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="hombre" class="categoria">
+            <h2><span>02.</span> Hombre</h2>
+            <div class="grid-productos">
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M28,10 L72,10 L76,90 L57,90 L50,42 L43,90 L24,90 Z" fill="#23426B"/><rect x="66" y="40" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>501® Original Jeans</h3>
+                        <p class="desc">El legendario jean con bragueta de botones y ajuste recto clásico.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$1,799 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M30,10 L70,10 L72,90 L56,90 L50,42 L44,90 L28,90 Z" fill="#1B2A4A"/><rect x="64" y="40" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>511™ Slim Fit</h3>
+                        <p class="desc">Corte moderno ajustado con tecnología Levi's® Flex para comodidad.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$1,699 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,15 L68,15 L88,35 L80,75 L70,73 L70,40 L70,85 L30,85 L30,40 L30,73 L20,75 L12,35 Z" fill="#5A84B5"/><rect x="62" y="38" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>Camisa Western Barstow</h3>
+                        <p class="desc">Camisa vaquera de mezclilla ligera con broches nacarados y dos bolsillos.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$1,499 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="kids" class="categoria">
+            <h2><span>03.</span> Kids</h2>
+            <div class="grid-productos">
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,12 L68,12 L71,88 L56,88 L50,44 L44,88 L29,88 Z" fill="#4874A8"/><rect x="62" y="40" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>510™ Skinny Jeans Juvenil</h3>
+                        <p class="desc">Mezclilla elástica resistente con pretina interior ajustable para niños.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$949 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,16 L68,16 L88,36 L78,52 L70,44 L70,85 L30,85 L30,44 L22,52 L12,36 Z" fill="#C41230"/><rect x="38" y="42" width="24" height="10" fill="#FFFFFF"/></svg>
+                        </div>
+                        <h3>Sudadera Logo Batwing Kids</h3>
+                        <p class="desc">Sudadera de felpa suave con el logotipo clásico Levi's® al frente.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$899 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M36,12 L42,12 L42,26 L58,26 L58,12 L64,12 L68,45 L74,88 L56,88 L50,50 L44,88 L26,88 L32,45 Z" fill="#5682B4"/><rect x="46" y="32" width="8" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>Overol Denim Infantil</h3>
+                        <p class="desc">Overol clásico de mezclilla con tirantes ajustables y bolsillo frontal.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$1,199 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="colecciones" class="categoria">
+            <h2><span>04.</span> Colecciones</h2>
+            <div class="grid-productos">
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M28,10 L72,10 L77,90 L58,90 L50,42 L42,90 L23,90 Z" fill="#15253B"/><rect x="66" y="40" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>Levi's® Vintage 1955 501®</h3>
+                        <p class="desc">Edición de archivo histórico con corte relajado de los años 50.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$3,499 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M30,10 L70,10 L74,90 L57,90 L50,42 L43,90 L26,90 Z" fill="#1E3A5F"/><rect x="64" y="40" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>Made & Crafted® Selvedge</h3>
+                        <p class="desc">Confección artesanal premium con mezclilla Selvedge de orillo japonés.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$3,899 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,16 L68,16 L88,36 L78,52 L70,44 L70,85 L30,85 L30,44 L22,52 L12,36 Z" fill="#222222"/><rect x="38" y="42" width="24" height="10" fill="#C41230"/></svg>
+                        </div>
+                        <h3>Colección Red Tab™</h3>
+                        <p class="desc">Prenda unisex de edición especial con bordado conmemorativo Red Tab™.</p>
+                    </div>
+                    <div>
+                        <p class="precio">$1,399 MXN</p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="rebajas" class="categoria">
+            <h2><span>05.</span> Rebajas</h2>
+            <div class="grid-productos">
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M29,10 L71,10 L75,90 L57,90 L50,42 L43,90 L25,90 Z" fill="#4D77A8"/><rect x="65" y="40" width="7" height="4" fill="#C41230"/></svg>
+                        </div>
+                        <h3>505™ Regular Fit (Descuento)</h3>
+                        <p class="desc">Corte recto tradicional con cierre de cremallera en lavado azul medio.</p>
+                    </div>
+                    <div>
+                        <p class="precio"><span class="precio-antes">$1,699</span><span class="precio-oferta">$1,099 MXN</span></p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,16 L68,16 L88,36 L78,52 L70,44 L70,85 L30,85 L30,44 L22,52 L12,36 Z" fill="#eeeeee" stroke="#cccccc"/><rect x="38" y="42" width="24" height="10" fill="#C41230"/></svg>
+                        </div>
+                        <h3>Playera Gráfica Clásica (Rebaja)</h3>
+                        <p class="desc">Playera 100% algodón jersey con estampado Batwing en el pecho.</p>
+                    </div>
+                    <div>
+                        <p class="precio"><span class="precio-antes">$649</span><span class="precio-oferta">$389 MXN</span></p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <div>
+                        <div class="producto-img">
+                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,15 L68,15 L88,35 L80,75 L70,73 L70,40 L70,85 L30,85 L30,40 L30,73 L20,75 L12,35 Z" fill="#254369"/><path d="M35,15 L65,15 L50,28 Z" fill="#f5f5dc"/></svg>
+                        </div>
+                        <h3>Chamarra Sherpa Trucker (Rebaja)</h3>
+                        <p class="desc">Chamarra de mezclilla con forro interior cálido de borrega sintética.</p>
+                    </div>
+                    <div>
+                        <p class="precio"><span class="precio-antes">$2,799</span><span class="precio-oferta">$1,899 MXN</span></p>
+                        <button type="button" class="btn-agregar">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel-cuenta-carrito">
+            <h2>Inicio de Sesión, Registro y Carrito</h2>
+            <div class="grid-formularios">
+
+                <div id="login" class="caja-form">
+                    <h3>Inicio de Sesión</h3>
+                    <form action="#" method="post">
+                        <div class="campo">
+                            <label for="login-correo">Correo electrónico:</label>
+                            <input type="email" id="login-correo" name="correo" placeholder="usuario@correo.com" required>
+                        </div>
+                        <div class="campo">
+                            <label for="login-pass">Contraseña:</label>
+                            <input type="password" id="login-pass" name="password" placeholder="Ingresa tu contraseña" required>
+                        </div>
+                        <div class="campo-check">
+                            <input type="checkbox" id="recordar" name="recordar">
+                            <label for="recordar">Recordar mi sesión</label>
+                        </div>
+                        <button type="submit" class="btn-rojo">Entrar</button>
+                    </form>
+                </div>
+
+                <div id="registro" class="caja-form">
+                    <h3>Registro</h3>
+                    <form>
+                        <div class="campo">
+                            <label for="reg-nombre">Nombre completo:</label>
+                            <input type="text" id="reg-nombre" placeholder="Nombre y apellido">
+                        </div>
+                        <div class="campo">
+                            <label for="reg-correo">Correo electrónico:</label>
+                            <input type="email" id="reg-correo" placeholder="nuevo@correo.com">
+                        </div>
+                        <div class="campo">
+                            <label for="reg-pass">Contraseña:</label>
+                            <input type="password" id="reg-pass" placeholder="Crea una contraseña">
+                        </div>
+                        <button type="button" class="btn-secundario">Crear cuenta</button>
+                    </form>
+                </div>
+
+                <div id="carrito" class="caja-form">
+                    <h3>Carrito de Compras</h3>
+                    <table class="tabla-carrito">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cant.</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>501® Original Jeans</td>
+                                <td>1</td>
+                                <td>$1,799</td>
+                            </tr>
+                            <tr>
+                                <td>Playera Gráfica Clásica</td>
+                                <td>1</td>
+                                <td>$389</td>
+                            </tr>
+                            <tr class="fila-total">
+                                <td colspan="2">Total</td>
+                                <td>$2,188 MXN</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn-secundario">Finalizar compra</button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div class="datos-alumno">
+                <h3>INFORMACIÓN DEL ALUMNO</h3>
+                <div class="fila-alumno">
+                    <label for="alumno-nombre">Nombre completo:</label>
+                    <input type="text" id="alumno-nombre" placeholder="Escribe tu nombre completo">
+                </div>
+                <div class="fila-alumno">
+                    <label for="alumno-matricula">Matrícula:</label>
+                    <input type="text" id="alumno-matricula" placeholder="Ej. 20260000">
+                </div>
+                <div class="fila-alumno">
+                    <label for="alumno-materia">Materia:</label>
+                    <input type="text" id="alumno-materia" placeholder="Ej. Programación Web">
+                </div>
+                <div class="fila-alumno">
+                    <label for="alumno-grupo">Grupo:</label>
+                    <input type="text" id="alumno-grupo" placeholder="Ej. 5° A">
+                </div>
+                <div class="fila-alumno">
+                    <label for="alumno-carrera">Carrera:</label>
+                    <input type="text" id="alumno-carrera" placeholder="Ej. Ingeniería en Sistemas">
+                </div>
+                <div class="fila-alumno">
+                    <label for="alumno-fecha">Fecha:</label>
+                    <input type="text" id="alumno-fecha" value="19 de Noviembre de 2026">
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div>
+                    <p><strong>Levi Strauss & Co.</strong> - Proyecto Escolar</p>
+                    <p>Anclajes: <a href="#mujer">Mujer</a> | <a href="#hombre">Hombre</a> | <a href="#kids">Kids</a> | <a href="#colecciones">Colecciones</a> | <a href="#rebajas">Rebajas</a></p>
+                </div>
+                <p><a href="#top">↑ Volver al inicio</a></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
