@@ -37,6 +37,13 @@
             text-decoration: none;
         }
 
+        .logo img {
+            height: 46px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
         .acciones-usuario {
             display: flex;
             gap: 12px;
@@ -149,10 +156,21 @@
         }
 
         .producto-img {
-            background-color: #f9f9f9;
-            padding: 14px;
+            background-color: #f4f4f4;
             margin-bottom: 12px;
             border-radius: 4px;
+            overflow: hidden;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .producto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .producto h3 {
@@ -345,27 +363,10 @@
             margin-bottom: 12px;
         }
 
-        .fila-alumno {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
+        .datos-alumno p {
+            margin-bottom: 6px;
             font-size: 14px;
-        }
-
-        .fila-alumno label {
-            min-width: 140px;
-            font-weight: bold;
-        }
-
-        .fila-alumno input {
-            flex: 1;
-            padding: 5px 8px;
-            border: 1px solid #555555;
-            border-radius: 4px;
-            background-color: #222222;
-            color: #ffffff;
-            font-size: 13px;
+            color: #f1f1f1;
         }
 
         .footer-links {
@@ -391,13 +392,6 @@
                 flex-direction: column;
                 gap: 12px;
             }
-            .fila-alumno {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .fila-alumno input {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -405,16 +399,13 @@
 
     <header>
         <a href="#top" class="logo" aria-label="Levi's Inicio">
-            <svg width="105" height="46" viewBox="0 0 210 92" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5,8 L205,8 L190,72 C170,62 148,64 132,78 C120,65 105,65 105,65 C105,65 90,65 78,78 C62,64 40,62 20,72 L5,8 Z" fill="#C41230"/>
-                <text x="105" y="48" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="bold" font-size="36" text-anchor="middle">LEVI'S</text>
-            </svg>
+            <img src="logo.jpg" alt="Logotipo Levi's">
         </a>
 
         <div class="acciones-usuario">
             <a href="#login">Inicio de Sesión</a>
             <a href="#registro">Registro</a>
-            <a href="#carrito" class="btn-carrito">Carrito (2)</a>
+            <a href="#carrito" class="btn-carrito">Carrito</a>
         </div>
     </header>
 
@@ -427,8 +418,7 @@
     </nav>
 
     <div class="banner">
-        <h1>Catálogo Oficial <span>Levi's®</span></h1>
-        <p>Usa la barra de navegación superior para desplazarte directamente a cada sección.</p>
+        <h1>Catálogo Oficial <span>Levi's</span></h1>
     </div>
 
     <main>
@@ -439,7 +429,7 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M30,10 L70,10 L75,90 L57,90 L50,42 L43,90 L25,90 Z" fill="#3B6598"/><rect x="65" y="40" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="pantalon 1.jpg" alt="501 Original Fit Jeans Mujer">
                         </div>
                         <h3>501® Original Fit Jeans</h3>
                         <p class="desc">Corte recto icónico de tiro alto en mezclilla 100% algodón.</p>
@@ -453,10 +443,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,15 L68,15 L88,35 L80,75 L70,73 L70,40 L70,85 L30,85 L30,40 L30,73 L20,75 L12,35 Z" fill="#2B4C7E"/><rect x="62" y="38" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="pantalon 2.jpg" alt="Trucker Jacket Clásica Mujer">
                         </div>
-                        <h3>Trucker Jacket Clásica</h3>
-                        <p class="desc">Chamarra de mezclilla original con botones metálicos y etiqueta roja.</p>
+                        <h3>Pantalon Mezclilla</h3>
+                        <p class="desc">Pantalon Mezclilla azul deslavado.</p>
                     </div>
                     <div>
                         <p class="precio">$2,199 MXN</p>
@@ -467,7 +457,7 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,10 L68,10 L73,90 L56,90 L50,40 L44,90 L27,90 Z" fill="#6992C2"/><rect x="63" y="40" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="pantalon 3.jpg" alt="Wedgie Straight Jeans Mujer">
                         </div>
                         <h3>Wedgie Straight Jeans</h3>
                         <p class="desc">Inspirado en los jeans vintage con ajuste ceñido en cintura y cadera.</p>
@@ -486,10 +476,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M28,10 L72,10 L76,90 L57,90 L50,42 L43,90 L24,90 Z" fill="#23426B"/><rect x="66" y="40" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="pantalon 4.jpg" alt="501 Original Jeans Hombre">
                         </div>
                         <h3>501® Original Jeans</h3>
-                        <p class="desc">El legendario jean con bragueta de botones y ajuste recto clásico.</p>
+                        <p class="desc">El legendario jean con bragueta de cierre y ajuste recto clásico.</p>
                     </div>
                     <div>
                         <p class="precio">$1,799 MXN</p>
@@ -500,10 +490,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M30,10 L70,10 L72,90 L56,90 L50,42 L44,90 L28,90 Z" fill="#1B2A4A"/><rect x="64" y="40" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="pantalon 5.jpg" alt="511 Slim Fit Hombre">
                         </div>
-                        <h3>511™ Slim Fit</h3>
-                        <p class="desc">Corte moderno ajustado con tecnología Levi's® Flex para comodidad.</p>
+                        <h3>501® Pantalon azul mezclilla</h3>
+                        <p class="desc">Corte recto azul fuerte para caballero.</p>
                     </div>
                     <div>
                         <p class="precio">$1,699 MXN</p>
@@ -514,10 +504,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,15 L68,15 L88,35 L80,75 L70,73 L70,40 L70,85 L30,85 L30,40 L30,73 L20,75 L12,35 Z" fill="#5A84B5"/><rect x="62" y="38" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="pantalon 6.jpg" alt="Camisa Western Barstow Hombre">
                         </div>
-                        <h3>Camisa Western Barstow</h3>
-                        <p class="desc">Camisa vaquera de mezclilla ligera con broches nacarados y dos bolsillos.</p>
+                        <h3>Pantalon vaquero blanco</h3>
+                        <p class="desc">Pantalon vaquero blanco para caballero .</p>
                     </div>
                     <div>
                         <p class="precio">$1,499 MXN</p>
@@ -533,9 +523,9 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,12 L68,12 L71,88 L56,88 L50,44 L44,88 L29,88 Z" fill="#4874A8"/><rect x="62" y="40" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="kids 1.jpg" alt="510 Skinny Jeans Juvenil Kids">
                         </div>
-                        <h3>510™ Skinny Jeans Juvenil</h3>
+                        <h3>510™ Skinny Jeans Juvenil Niño</h3>
                         <p class="desc">Mezclilla elástica resistente con pretina interior ajustable para niños.</p>
                     </div>
                     <div>
@@ -547,10 +537,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,16 L68,16 L88,36 L78,52 L70,44 L70,85 L30,85 L30,44 L22,52 L12,36 Z" fill="#C41230"/><rect x="38" y="42" width="24" height="10" fill="#FFFFFF"/></svg>
+                            <img src="kids 2.jpg" alt="Sudadera Logo Batwing Kids">
                         </div>
-                        <h3>Sudadera Logo Batwing Kids</h3>
-                        <p class="desc">Sudadera de felpa suave con el logotipo clásico Levi's® al frente.</p>
+                        <h3>510™ Skinny Jeans Juvenil Niña</h3>
+                        <p class="desc">Mezclilla elástica resistente con pretina interior ajustable para niños.</p>
                     </div>
                     <div>
                         <p class="precio">$899 MXN</p>
@@ -561,10 +551,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M36,12 L42,12 L42,26 L58,26 L58,12 L64,12 L68,45 L74,88 L56,88 L50,50 L44,88 L26,88 L32,45 Z" fill="#5682B4"/><rect x="46" y="32" width="8" height="4" fill="#C41230"/></svg>
+                            <img src="kids 3.jpg" alt="Overol Denim Infantil Kids">
                         </div>
-                        <h3>Overol Denim Infantil</h3>
-                        <p class="desc">Overol clásico de mezclilla con tirantes ajustables y bolsillo frontal.</p>
+                        <h3>Conjunto infantilInfantil</h3>
+                        <p class="desc">Conjunto de pantalon y camisa levis para niño.</p>
                     </div>
                     <div>
                         <p class="precio">$1,199 MXN</p>
@@ -580,7 +570,7 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M28,10 L72,10 L77,90 L58,90 L50,42 L42,90 L23,90 Z" fill="#15253B"/><rect x="66" y="40" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="coleccion 1.jpg" alt="Levi's Vintage 1955 501">
                         </div>
                         <h3>Levi's® Vintage 1955 501®</h3>
                         <p class="desc">Edición de archivo histórico con corte relajado de los años 50.</p>
@@ -594,10 +584,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M30,10 L70,10 L74,90 L57,90 L50,42 L43,90 L26,90 Z" fill="#1E3A5F"/><rect x="64" y="40" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="coleccion 2.jpg" alt="Made & Crafted Selvedge">
                         </div>
-                        <h3>Made & Crafted® Selvedge</h3>
-                        <p class="desc">Confección artesanal premium con mezclilla Selvedge de orillo japonés.</p>
+                        <h3>Chaqueta tipo piel vaquera</h3>
+                        <p class="desc">Cahqueta para dama de piel sinteica color azul con blanco.</p>
                     </div>
                     <div>
                         <p class="precio">$3,899 MXN</p>
@@ -608,10 +598,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,16 L68,16 L88,36 L78,52 L70,44 L70,85 L30,85 L30,44 L22,52 L12,36 Z" fill="#222222"/><rect x="38" y="42" width="24" height="10" fill="#C41230"/></svg>
+                            <img src="coleccion 3.jpg" alt="Colección Red Tab">
                         </div>
-                        <h3>Colección Red Tab™</h3>
-                        <p class="desc">Prenda unisex de edición especial con bordado conmemorativo Red Tab™.</p>
+                        <h3>Overol para dama mezclilla</h3>
+                        <p class="desc">Overol para dama de mezclilla en color azul.</p>
                     </div>
                     <div>
                         <p class="precio">$1,399 MXN</p>
@@ -627,7 +617,7 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M29,10 L71,10 L75,90 L57,90 L50,42 L43,90 L25,90 Z" fill="#4D77A8"/><rect x="65" y="40" width="7" height="4" fill="#C41230"/></svg>
+                            <img src="rebaja 1.jpg" alt="505 Regular Fit Descuento">
                         </div>
                         <h3>505™ Regular Fit (Descuento)</h3>
                         <p class="desc">Corte recto tradicional con cierre de cremallera en lavado azul medio.</p>
@@ -641,10 +631,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,16 L68,16 L88,36 L78,52 L70,44 L70,85 L30,85 L30,44 L22,52 L12,36 Z" fill="#eeeeee" stroke="#cccccc"/><rect x="38" y="42" width="24" height="10" fill="#C41230"/></svg>
+                            <img src="rebaja 2.jpg" alt="Playera Gráfica Clásica Rebaja">
                         </div>
-                        <h3>Playera Gráfica Clásica (Rebaja)</h3>
-                        <p class="desc">Playera 100% algodón jersey con estampado Batwing en el pecho.</p>
+                        <h3>Pantalon verde (Rebaja)</h3>
+                        <p class="desc">Pantalon de mujer campanado color verde.</p>
                     </div>
                     <div>
                         <p class="precio"><span class="precio-antes">$649</span><span class="precio-oferta">$389 MXN</span></p>
@@ -655,10 +645,10 @@
                 <article class="producto">
                     <div>
                         <div class="producto-img">
-                            <svg width="80" height="80" viewBox="0 0 100 100"><path d="M32,15 L68,15 L88,35 L80,75 L70,73 L70,40 L70,85 L30,85 L30,40 L30,73 L20,75 L12,35 Z" fill="#254369"/><path d="M35,15 L65,15 L50,28 Z" fill="#f5f5dc"/></svg>
+                            <img src="rebaja 3.jpg" alt="Chamarra Sherpa Trucker Rebaja">
                         </div>
-                        <h3>Chamarra Sherpa Trucker (Rebaja)</h3>
-                        <p class="desc">Chamarra de mezclilla con forro interior cálido de borrega sintética.</p>
+                        <h3>Pantalon azul (Rebaja)</h3>
+                        <p class="desc">Pantalon para mujer color azul.</p>
                     </div>
                     <div>
                         <p class="precio"><span class="precio-antes">$2,799</span><span class="precio-oferta">$1,899 MXN</span></p>
@@ -720,22 +710,6 @@
                                 <th>Subtotal</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>501® Original Jeans</td>
-                                <td>1</td>
-                                <td>$1,799</td>
-                            </tr>
-                            <tr>
-                                <td>Playera Gráfica Clásica</td>
-                                <td>1</td>
-                                <td>$389</td>
-                            </tr>
-                            <tr class="fila-total">
-                                <td colspan="2">Total</td>
-                                <td>$2,188 MXN</td>
-                            </tr>
-                        </tbody>
                     </table>
                     <button type="button" class="btn-secundario">Finalizar compra</button>
                 </div>
@@ -748,39 +722,18 @@
     <footer>
         <div class="footer-contenido">
             <div class="datos-alumno">
-                <h3>INFORMACIÓN DEL ALUMNO</h3>
-                <div class="fila-alumno">
-                    <label for="alumno-nombre">Nombre completo:</label>
-                    <input type="text" id="alumno-nombre" placeholder="Escribe tu nombre completo">
-                </div>
-                <div class="fila-alumno">
-                    <label for="alumno-matricula">Matrícula:</label>
-                    <input type="text" id="alumno-matricula" placeholder="Ej. 20260000">
-                </div>
-                <div class="fila-alumno">
-                    <label for="alumno-materia">Materia:</label>
-                    <input type="text" id="alumno-materia" placeholder="Ej. Programación Web">
-                </div>
-                <div class="fila-alumno">
-                    <label for="alumno-grupo">Grupo:</label>
-                    <input type="text" id="alumno-grupo" placeholder="Ej. 5° A">
-                </div>
-                <div class="fila-alumno">
-                    <label for="alumno-carrera">Carrera:</label>
-                    <input type="text" id="alumno-carrera" placeholder="Ej. Ingeniería en Sistemas">
-                </div>
-                <div class="fila-alumno">
-                    <label for="alumno-fecha">Fecha:</label>
-                    <input type="text" id="alumno-fecha" value="19 de Noviembre de 2026">
-                </div>
+                <p><strong>Nombre completo:</strong> Serrano Flaco Alan Jovanni</p>
+                <p><strong>Matrícula:</strong> 0898</p>
+                <p><strong>Grupo:</strong> 5°J</p>
+                <p><strong>Carrera:</strong> Programación</p>
             </div>
 
             <div class="footer-links">
                 <div>
-                    <p><strong>Levi Strauss & Co.</strong> - Proyecto Escolar</p>
-                    <p>Anclajes: <a href="#mujer">Mujer</a> | <a href="#hombre">Hombre</a> | <a href="#kids">Kids</a> | <a href="#colecciones">Colecciones</a> | <a href="#rebajas">Rebajas</a></p>
+                    <p><strong>Levi</strong> - Examen</p>
+                    <p><a href="#mujer">Mujer</a> | <a href="#hombre">Hombre</a> | <a href="#kids">Kids</a> | <a href="#colecciones">Colecciones</a> | <a href="#rebajas">Rebajas</a></p>
                 </div>
-                <p><a href="#top">↑ Volver al inicio</a></p>
+                <p><a href="#top">Volver al inicio</a></p>
             </div>
         </div>
     </footer>
